@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/nav_items.dart';
 import 'package:portfolio/styles/style.dart';
+import 'package:portfolio/widgets/drawer_mobile.dart';
 import 'package:portfolio/widgets/header_desktop.dart';
 import 'package:portfolio/widgets/header_mobile.dart';
 import 'package:portfolio/widgets/site_logo.dart';
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      endDrawer: Drawer(),
+      endDrawer:const DrawerMobile() ,
       backgroundColor: CustomColor.scaffoldBg,
       body: ListView(
         scrollDirection: Axis.vertical,
