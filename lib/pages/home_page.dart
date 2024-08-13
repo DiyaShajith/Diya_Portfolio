@@ -3,6 +3,7 @@ import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/nav_items.dart';
 import 'package:portfolio/styles/style.dart';
 import 'package:portfolio/widgets/header_desktop.dart';
+import 'package:portfolio/widgets/header_mobile.dart';
 import 'package:portfolio/widgets/site_logo.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,16 +14,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+      endDrawer: Drawer(),
       backgroundColor: CustomColor.scaffoldBg,
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
           // MAIN
           // const HeaderDesktop(),
-         
+          HeaderMobile(
+            onLogoTap: () {},
+            onMenuTap: () {
+              scaffoldKey.currentState?.openEndDrawer();
+            },
+          ),
           // SKILLS
           Container(
             height: 500,
