@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/nav_items.dart';
+import 'package:portfolio/styles/style.dart';
 import 'package:portfolio/widgets/header_desktop.dart';
+import 'package:portfolio/widgets/site_logo.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,7 +21,8 @@ class _HomePageState extends State<HomePage> {
         scrollDirection: Axis.vertical,
         children: [
           // MAIN
-          const HeaderDesktop(),
+          // const HeaderDesktop(),
+         
           // SKILLS
           Container(
             height: 500,
