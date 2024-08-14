@@ -19,6 +19,13 @@ class MainDesktop extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              if (screenSize.width < 900)
+                const CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage(
+                    "assets/IMG_20240805_001346_550.jpg",
+                  ),
+                ),
               const Text(
                 "DIYA SHAJITH K\nFlutter Developer",
                 style: TextStyle(
@@ -39,12 +46,13 @@ class MainDesktop extends StatelessWidget {
               )
             ],
           ),
-          const CircleAvatar(
-            radius: 100,
-            backgroundImage: AssetImage(
-              "assets/IMG_20240805_001346_550.jpg",
-            ),
-          )
+          if (screenSize.width > 900)
+            const CircleAvatar(
+              radius: 100,
+              backgroundImage: AssetImage(
+                "assets/IMG_20240805_001346_550.jpg",
+              ),
+            )
         ],
       ),
     );

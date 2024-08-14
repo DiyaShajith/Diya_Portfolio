@@ -1,35 +1,44 @@
 const List<Map> platformItems = [
   {
-    "img": "assets/images.png",
+    "img": "assets/android.png",
+    "title": "Android Dev",
+  },
+  {
+    "img": "assets/globe.png",
+    "title": "Web Dev",
+  },
+  {
+    "img": "assets/apple.png",
+    "title": "IOS Dev",
+  },
+  {
+    "img": "assets/monitor.png",
+    "title": "Desktop Dev",
+  },
+];
+const List<Map> skillItems = [
+  {
+    "img": "assets/coding.png",
     "title": "Dart",
   },
   {
-    "img": "assets/flutter5786_1687632217.jpeg",
-    "title": "Flutter",
-  },
-  {
-    "img": "assets/java-logo-1.png",
+    "img": "assets/internet.png",
     "title": "Java",
   },
   {
-    "img": "assets/JS.webp",
-    "title": "Javascript",
+    "img": "assets/c- (1).png",
+    "title": "C++",
   },
   {
-    "img": "assets/python.jpeg",
+    "img": "assets/python (1).png",
     "title": "Python",
   },
   {
-    "img": "assets/HTML5_Logo_512.png",
+    "img": "assets/coding (1).png",
     "title": "HTML5",
   },
   {
-    "img": "assets/C_Logo.png",
+    "img": "assets/c-.png",
     "title": "C Dev",
   },
-  {
-    "img": "assets/DS.png",
-    "title": "Data Structures",
-  },
-  
 ];
