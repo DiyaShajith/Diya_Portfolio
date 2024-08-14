@@ -10,6 +10,7 @@ import 'package:portfolio/widgets/header_desktop.dart';
 import 'package:portfolio/widgets/header_mobile.dart';
 import 'package:portfolio/widgets/main_desktop.dart';
 import 'package:portfolio/widgets/site_logo.dart';
+import 'package:portfolio/widgets/skills_desktop.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -65,60 +66,8 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.bold,
                           color: CustomColor.whitePrimary),
                     ),
-                    const SizedBox(height: 20),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 450),
-                            child: Wrap(
-                              spacing: 5.0,
-                              runSpacing: 5.0,
-                              children: [
-                                for (int i = 0; i < platformItems.length; i++)
-                                  Container(
-                                    width: 200,
-                                    decoration: BoxDecoration(
-                                        color: CustomColor.bgLight2,
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child: ListTile(
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                              horizontal: 20.0, vertical: 10.0),
-                                      leading: Image.asset(
-                                        platformItems[i]["img"],
-                                        width: 26.0,
-                                      ),
-                                      title: Text(platformItems[i]["title"]),
-                                    ),
-                                  )
-                              ],
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 50.0),
-                        Expanded(
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 500.0),
-                            child: Wrap(
-                              spacing: 10.0,
-                              runSpacing: 10.0,
-                              children: [
-                                for (int i = 0; i < skillItems.length; i++)
-                                  Chip(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 12.0, horizontal: 16.0),
-                                    backgroundColor: CustomColor.bgLight2,
-                                    label: Text(skillItems[i]["title"]),
-                                    avatar: Image.asset(skillItems[i]["img"]),
-                                  )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    const SizedBox(height: 50),
+                    const SkillsDesktop(),Column(children: [],)
                   ],
                 ),
               ),
