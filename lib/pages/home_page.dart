@@ -5,6 +5,8 @@ import 'package:portfolio/constants/nav_items.dart';
 import 'package:portfolio/constants/size.dart';
 import 'package:portfolio/constants/skill_items.dart';
 import 'package:portfolio/styles/style.dart';
+import 'package:portfolio/widgets/contactsession.dart';
+import 'package:portfolio/widgets/customtextfield.dart';
 import 'package:portfolio/widgets/drawer_mobile.dart';
 import 'package:portfolio/widgets/header_desktop.dart';
 import 'package:portfolio/widgets/header_mobile.dart';
@@ -67,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                           color: CustomColor.whitePrimary),
                     ),
                     const SizedBox(height: 50),
-                    const SkillsDesktop(),Column(children: [],)
+                    const SkillsDesktop(),
                   ],
                 ),
               ),
@@ -76,12 +78,11 @@ class _HomePageState extends State<HomePage> {
                 height: 500,
                 width: double.maxFinite,
               ),
-              // CONTACT
-              Container(
-                height: 500,
-                width: double.maxFinite,
-                color: Colors.blueGrey,
+              SizedBox(
+                height: 30,
               ),
+              // CONTACT
+              Contactsession(),
               // FOOTER
               const SizedBox(
                 height: 500,
@@ -92,5 +93,9 @@ class _HomePageState extends State<HomePage> {
         );
       },
     );
+  }
+
+  OutlineInputBorder get getInputBorder {
+    return OutlineInputBorder();
   }
 }
