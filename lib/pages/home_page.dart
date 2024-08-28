@@ -8,6 +8,7 @@ import 'package:portfolio/styles/style.dart';
 import 'package:portfolio/widgets/contactsession.dart';
 import 'package:portfolio/widgets/customtextfield.dart';
 import 'package:portfolio/widgets/drawer_mobile.dart';
+import 'package:portfolio/widgets/footer.dart';
 import 'package:portfolio/widgets/header_desktop.dart';
 import 'package:portfolio/widgets/header_mobile.dart';
 import 'package:portfolio/widgets/main_desktop.dart';
@@ -84,10 +85,7 @@ class _HomePageState extends State<HomePage> {
               // CONTACT
               Contactsession(),
               // FOOTER
-              const SizedBox(
-                height: 500,
-                width: double.maxFinite,
-              ),
+              Footer(),
             ],
           ),
         );
