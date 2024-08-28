@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:portfolio/constants/colors.dart';
+import 'package:portfolio/constants/size.dart';
 import 'package:portfolio/widgets/customtextfield.dart';
 
 class Contactsession extends StatelessWidget {
@@ -23,24 +25,13 @@ class Contactsession extends StatelessWidget {
             height: 50,
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 700),
-            child: Row(
-              children: [
-                Flexible(
-                  child: Customtextfield(
-                    hintText: "Your name",
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Flexible(
-                  child: Customtextfield(
-                    hintText: "Your email",
-                  ),
-                ),
-              ],
-            ),
+            constraints: BoxConstraints(maxWidth: 700,maxHeight: 100),
+            child: LayoutBuilder(builder: (context, constraints) {
+              if (constraints.maxWidth >= kMinDesktopWidth) {
+                return buildnameEmailFeildDesktop();
+              } else
+                return buildnameEmailFieldMobile();
+            }),
           ),
           const SizedBox(
             height: 15,
@@ -113,4 +104,44 @@ class Contactsession extends StatelessWidget {
       ),
     );
   }
+
+  Row buildnameEmailFeildDesktop() {
+    return Row(
+      children: [
+        Flexible(
+          child: Customtextfield(
+            hintText: "Your name",
+          ),
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        Flexible(
+          child: Customtextfield(
+            hintText: "Your email",
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+Column buildnameEmailFieldMobile() {
+  return Column(
+    children: [
+      Flexible(
+        child: Customtextfield(
+          hintText: "Your name",
+        ),
+      ),
+      const SizedBox(
+        width: 15,
+      ),
+      Flexible(
+        child: Customtextfield(
+          hintText: "Your email",
+        ),
+      ),
+    ],
+  );
 }
