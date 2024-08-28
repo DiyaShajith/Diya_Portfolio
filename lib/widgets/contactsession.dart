@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/constants/size.dart';
+import 'package:portfolio/constants/sns_links.dart';
 import 'package:portfolio/widgets/customtextfield.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Contactsession extends StatelessWidget {
   const Contactsession({super.key});
@@ -25,12 +27,13 @@ class Contactsession extends StatelessWidget {
             height: 50,
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 700,maxHeight: 100),
+            constraints: BoxConstraints(maxWidth: 700, maxHeight: 100),
             child: LayoutBuilder(builder: (context, constraints) {
               if (constraints.maxWidth >= kMinDesktopWidth) {
                 return buildnameEmailFeildDesktop();
-              } else
+              } else {
                 return buildnameEmailFieldMobile();
+              }
             }),
           ),
           const SizedBox(
@@ -60,8 +63,9 @@ class Contactsession extends StatelessWidget {
             height: 30,
           ),
           ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 300),
-              child: const Divider()),
+            constraints: BoxConstraints(maxWidth: 300),
+            child: const Divider(),
+          ),
           const SizedBox(
             height: 15,
           ),
@@ -71,28 +75,36 @@ class Contactsession extends StatelessWidget {
             alignment: WrapAlignment.center,
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _openUrl(SnsLinks.github);
+                },
                 child: Image.asset(
                   "assets/github.png",
                   width: 28,
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _openUrl(SnsLinks.instagram);
+                },
                 child: Image.asset(
                   "assets/instagram.png",
                   width: 28,
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _openUrl(SnsLinks.linkedin);
+                },
                 child: Image.asset(
                   "assets/linkedin.png",
                   width: 28,
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _openUrl(SnsLinks.telegram);
+                },
                 child: Image.asset(
                   "assets/telegram.png",
                   width: 28,
@@ -103,6 +115,14 @@ class Contactsession extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _openUrl(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   Row buildnameEmailFeildDesktop() {
@@ -124,24 +144,24 @@ class Contactsession extends StatelessWidget {
       ],
     );
   }
-}
 
-Column buildnameEmailFieldMobile() {
-  return Column(
-    children: [
-      Flexible(
-        child: Customtextfield(
-          hintText: "Your name",
+  Column buildnameEmailFieldMobile() {
+    return Column(
+      children: [
+        Flexible(
+          child: Customtextfield(
+            hintText: "Your name",
+          ),
         ),
-      ),
-      const SizedBox(
-        width: 15,
-      ),
-      Flexible(
-        child: Customtextfield(
-          hintText: "Your email",
+        const SizedBox(
+          height: 15,
         ),
-      ),
-    ],
-  );
+        Flexible(
+          child: Customtextfield(
+            hintText: "Your email",
+          ),
+        ),
+      ],
+    );
+  }
 }
